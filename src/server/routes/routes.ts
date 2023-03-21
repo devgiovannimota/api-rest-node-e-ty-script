@@ -1,14 +1,14 @@
 import { Router } from "express";
 import { StatusCodes } from "http-status-codes";
+import { CidadesController } from "../controllers/cidades";
 
 const router = Router();
 
-router.get("/", (request, response) => {});
-
-router.post("/teste", (request, response) => {
-  console.log(request.body);
-  return response.status(StatusCodes.UNAUTHORIZED).send(request.body);
+router.get("/", (request, response) => {
+  return response.status(StatusCodes.ACCEPTED).send("Olá, dev");
 });
+
+router.post("/cidades", CidadesController.create);
 
 router.put("/", (request, response) => {});
 
