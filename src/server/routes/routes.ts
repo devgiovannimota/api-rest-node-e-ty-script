@@ -8,7 +8,12 @@ router.get("/", (request, response) => {
   return response.status(StatusCodes.ACCEPTED).send("Olá, dev");
 });
 
-router.post("/cidades", CidadesController.create);
+router.post(
+  "/cidades",
+  CidadesController.createBodyValidator,
+  CidadesController.createQueryValidator,
+  CidadesController.create
+);
 
 router.put("/", (request, response) => {});
 
